@@ -47,10 +47,23 @@ public class BluetoothChatService {
     private static final String NAME_INSECURE = "BluetoothChatInsecure";
 
     // Unique UUID for this application
+    //private static final UUID MY_UUID_SECURE =
+            //UUID.fromString("fa87c0d0-afac-11de-8a39-0800200c9a66");
+    //private static final UUID MY_UUID_INSECURE =
+            //UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66");
+
+    // Unique UUID for this application
+    // Andrew Mannery:  The above UUID would not work with my BT dongle.
+    //          Apparently there are standard UUID’s for various devices.
+    //          Serial Port’s use "00001101-0000-1000-8000-00805f9b34fb"
+    //          In many cases, you don't need to use these fixed UUIDs.
+    //          For example, in the case where you are creating a chat application
+    //          in which one Android device interacts with another Android device
+    //          that uses the same application and hence the same UUID.
     private static final UUID MY_UUID_SECURE =
-            UUID.fromString("fa87c0d0-afac-11de-8a39-0800200c9a66");
+            UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
     private static final UUID MY_UUID_INSECURE =
-            UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66");
+            UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
 
     // Member fields
     private final BluetoothAdapter mAdapter;

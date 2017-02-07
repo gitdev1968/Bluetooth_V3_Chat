@@ -174,7 +174,8 @@ public class BluetoothChatFragment extends Fragment {
                 View view = getView();
                 if (null != view) {
                     TextView textView = (TextView) view.findViewById(R.id.edit_text_out);
-                    String message = textView.getText().toString();
+                    String newline = System.getProperty("line.separator");
+                    String message = textView.getText().toString() + newline;
                     sendMessage(message);
                 }
             }
@@ -305,7 +306,8 @@ public class BluetoothChatFragment extends Fragment {
                     byte[] readBuf = (byte[]) msg.obj;
                     // construct a string from the valid bytes in the buffer
                     String readMessage = new String(readBuf, 0, msg.arg1);
-                    mConversationArrayAdapter.add(mConnectedDeviceName + ":  " + readMessage);
+                    //mConversationArrayAdapter.add(mConnectedDeviceName + ":  " + readMessage);
+                    mConversationArrayAdapter.add(readMessage);
                     break;
                 case Constants.MESSAGE_DEVICE_NAME:
                     // save the connected device's name
